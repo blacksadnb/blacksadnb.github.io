@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>blacksadnb的博客</title>
+  <title>插入排序和归并排序 | blacksadnb的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="插入排序和归并排序最近学了一点点算法导论的开头，上手写了点代码，放博客上纪念下吧==12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838">
-<meta name="keywords" content="博客">
+<meta name="keywords" content="算法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="blacksadnb的博客">
+<meta property="og:title" content="插入排序和归并排序">
 <meta property="og:url" content="http://yoursite.com/2019/10/25/插入排序和归并排序/index.html">
 <meta property="og:site_name" content="blacksadnb的博客">
 <meta property="og:description" content="插入排序和归并排序最近学了一点点算法导论的开头，上手写了点代码，放博客上纪念下吧==12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-10-25T13:01:28.617Z">
+<meta property="og:updated_time" content="2019-10-25T13:51:47.980Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="blacksadnb的博客">
+<meta name="twitter:title" content="插入排序和归并排序">
 <meta name="twitter:description" content="插入排序和归并排序最近学了一点点算法导论的开头，上手写了点代码，放博客上纪念下吧==12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838">
   
     <link rel="alternative" href="/atom.xml" title="blacksadnb的博客" type="application/atom+xml">
@@ -162,6 +162,21 @@
             <article id="post-插入排序和归并排序" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      插入排序和归并排序
+    </h1>
+  
+
+        
+        <a href="/2019/10/25/插入排序和归并排序/" class="archive-article-date">
+  	<time datetime="2019-10-25T13:01:28.493Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-25</time>
+</a>
+        
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="插入排序和归并排序"><a href="#插入排序和归并排序" class="headerlink" title="插入排序和归并排序"></a>插入排序和归并排序</h2><h3 id="最近学了一点点算法导论的开头，上手写了点代码，放博客上纪念下吧"><a href="#最近学了一点点算法导论的开头，上手写了点代码，放博客上纪念下吧" class="headerlink" title="最近学了一点点算法导论的开头，上手写了点代码，放博客上纪念下吧=="></a>最近学了一点点算法导论的开头，上手写了点代码，放博客上纪念下吧==</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># <span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta"># <span class="meta-keyword">define</span> NUM 10000		<span class="comment">//</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">merge_sort</span><span class="params">(<span class="keyword">int</span> arr[], <span class="keyword">int</span> left, <span class="keyword">int</span> mid, <span class="keyword">int</span> right)</span></span></span><br><span class="line"><span class="function"></span>&#123;	</span><br><span class="line">	<span class="comment">//方法一</span></span><br><span class="line">						<span class="keyword">int</span> temp[NUM] = &#123; <span class="number">0</span> &#125;;</span><br><span class="line">						<span class="keyword">int</span> j = left, k = mid + <span class="number">1</span>, t = <span class="number">0</span>;</span><br><span class="line">						<span class="keyword">while</span> (j &lt;= mid &amp;&amp; k &lt;= right)</span><br><span class="line">						&#123;</span><br><span class="line">							<span class="keyword">if</span> (arr[j] &lt; arr[k])</span><br><span class="line">								temp[t++] = arr[j++];</span><br><span class="line">							<span class="keyword">else</span></span><br><span class="line">								temp[t++] = arr[k++];</span><br><span class="line">						&#125;</span><br><span class="line">						<span class="keyword">if</span>(j &lt;= mid)</span><br><span class="line">							<span class="keyword">while</span> (t &lt; (right - left + <span class="number">1</span>))</span><br><span class="line">							&#123;</span><br><span class="line">								temp[t++] = arr[j++];</span><br><span class="line">							&#125;</span><br><span class="line">						<span class="keyword">if</span> (k &lt;= right)</span><br><span class="line">							<span class="keyword">while</span> (t &lt; (right - left + <span class="number">1</span>))</span><br><span class="line">							&#123;</span><br><span class="line">								temp[t++] = arr[k++];</span><br><span class="line">							&#125;</span><br><span class="line">						<span class="keyword">for</span> (t = <span class="number">0</span>; t &lt; (right - left + <span class="number">1</span>); t++)</span><br><span class="line">						&#123;</span><br><span class="line">							arr[left + t] = temp[t];</span><br><span class="line">						&#125;</span><br><span class="line">		</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/* </span></span><br><span class="line"><span class="comment">	//方法二，用一个很大的值作为哨兵=..=</span></span><br><span class="line"><span class="comment">						int R[NUM / 2 +1], L[NUM / 2 + 1];</span></span><br><span class="line"><span class="comment">						int j = 0, k = 0;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">						for (int i = 0; i &lt; mid - left + 1; i++)</span></span><br><span class="line"><span class="comment">						&#123;</span></span><br><span class="line"><span class="comment">							L[i] = arr[left + i];</span></span><br><span class="line"><span class="comment">						&#125;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">						for (int i = 0; i &lt; right - mid; i++)</span></span><br><span class="line"><span class="comment">						&#123;</span></span><br><span class="line"><span class="comment">							R[i] = arr[mid + 1 + i];</span></span><br><span class="line"><span class="comment">						&#125;</span></span><br><span class="line"><span class="comment">						L[mid - left + 1] = 0x7fffffff;					//设置哨兵，int型中的最大值</span></span><br><span class="line"><span class="comment">						R[right - mid] = 0x7fffffff;					//设置哨兵，int型中的最大值</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">						for (int i = 0; i &lt; right - left + 1; i++)      //循环的中止条件保证了在2个哨兵比较之前就会结束，就算输入了0x7fffffff，也没事，总有2个哨兵留在外面进不了数组。</span></span><br><span class="line"><span class="comment">						&#123;</span></span><br><span class="line"><span class="comment">							if (L[j] &lt; R[k])</span></span><br><span class="line"><span class="comment">								arr[left + i] = L[j++];</span></span><br><span class="line"><span class="comment">							else</span></span><br><span class="line"><span class="comment">								arr[left + i] = R[k++];</span></span><br><span class="line"><span class="comment">						&#125;</span></span><br><span class="line"><span class="comment">	*/</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insert_sort</span><span class="params">(<span class="keyword">int</span> arr[], <span class="keyword">int</span> left, <span class="keyword">int</span> right)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> j = left + <span class="number">1</span>; j &lt;= right; j++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">int</span> key = arr[j];</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = j - <span class="number">1</span>; i &gt;= left; i--)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span> (arr[i] &lt; key)</span><br><span class="line">			&#123;</span><br><span class="line">				arr[i + <span class="number">1</span>] = key;</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span></span><br><span class="line">				arr[i + <span class="number">1</span>] = arr[i];</span><br><span class="line">			<span class="keyword">if</span> (i == left)</span><br><span class="line">				arr[left] = key;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">merge</span><span class="params">(<span class="keyword">int</span> arr[], <span class="keyword">int</span> left, <span class="keyword">int</span> right)</span>				<span class="comment">//left对应开头，right对应结尾</span></span></span><br><span class="line"><span class="function"></span>&#123;			<span class="comment">/*</span></span><br><span class="line"><span class="comment">				if(left == right)		//如果分到了只剩一个了则直接结束，返回上一级进行合并。</span></span><br><span class="line"><span class="comment">					return;</span></span><br><span class="line"><span class="comment">			*/</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">//对较小的的子问题使用插入排序,如果排序的数字较小，用插入排序更快。</span></span><br><span class="line">	<span class="keyword">if</span> ((right - left + <span class="number">1</span>) &lt;= <span class="number">20</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		insert_sort(arr, left, right);</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> mid = (left + right) / <span class="number">2</span>;		<span class="comment">//相当于向下取整</span></span><br><span class="line"></span><br><span class="line">	merge(arr, left, mid);</span><br><span class="line">	merge(arr, mid + <span class="number">1</span>, right);</span><br><span class="line">	merge_sort(arr, left, mid, right);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;	</span><br><span class="line">	<span class="keyword">int</span> num = <span class="number">-1</span>;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"你想排列多少个数：\n"</span>);							<span class="comment">//也可以宏定义修改NUM，从而更改数组大小；</span></span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;num);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> arr[<span class="number">10000</span>] = &#123; <span class="number">0</span> &#125;;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"please input %d numbers : \n"</span>, num);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; num; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;arr[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	merge(arr, <span class="number">0</span>, num - <span class="number">1</span>);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"排序之后：\n"</span>);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; num; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%d  "</span>, arr[i]);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -201,6 +216,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -269,7 +295,7 @@
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          (no title)
+          2048小制作哦
         
       </div>
     </a>
@@ -418,7 +444,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">(⊙o⊙)2048哦</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">windows.h , c语言</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">迷宫, c语言，最短路径</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
